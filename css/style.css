@@ -1,8 +1,16 @@
 body {
-  font-size: 16px;
+  margin:0;
+  padding: 0;
+  height: 1000vh;
+  background-color:#202124;
 }
 
-.biggest {
-  font-size: 1.5rem;
-  color: red;
+
+.cube {
+ background-color: #63d1ff;
+ outline: 1px solid #0285d3;
+ position: fixed;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%);
 }

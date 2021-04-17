@@ -1,15 +1,36 @@
-const btn = document.querySelector('button');
-const ul = document.querySelector('ul');
+const squere = document.createElement('div');
+document.body.appendChild(squere);
+squere.classList.add('cube');
 
-let counter = 0;
+let grow = true;
 
-btn.addEventListener('click', () => {
-  const li = document.createElement('li');
-  counter = counter += 1;
-  li.textContent = counter;
+const step = 35;
 
-  if (counter % 5) {
-    li.classList.add('biggest');
+let size = 1; // wielkość kwadratu
+squere.style.width = `${size}px`;
+squere.style.height = `${size}px`;
+
+const maxWidth = parseFloat(window.innerWidth / 2);
+const maxHeight = parseFloat(window.innerHeight / 2);
+
+// Max-size
+console.log(`Połowa szerokość rozdzielczości ekranu to: ${maxWidth}`);
+console.log(`Połowa wysokośći rozdzielczości ekranu to: ${maxHeight}`);
+
+window.addEventListener('scroll', () => {
+  if (grow) {
+    size += step;
+    squere.style.width = `${size}px`;
+    squere.style.height = `${size}px`;
+  } else {
+    size -= step;
+    squere.style.width = `${size}px`;
+    squere.style.height = `${size}px`;
   }
-  ul.appendChild(li);
+
+  if (size >= window.innerWidth / 2) {
+    grow = !grow;
+  } else if (size <= 0) {
+    grow = !grow;
+  }
 });
